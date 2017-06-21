@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf8" />
+    <title>Text Kyle</title>
+    <style>
+      .error, .success {
+        margin: 20px 0;
+        padding: 10px;
+      }
+      .error {
+        background: red;
+      }
+      .success {
+        background: green;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Anonymous Texts To Kyle</h1>
+
+    {{ if .Error }}
+    <div class="error">{{ .Error }}</div>
+    {{ end }}
+
+    {{ if .Sent }}
+    <div class="success">Sent message: {{ .Sent }}</div>
+    {{ end }}
+
+    <form method="POST">
+      <label for="message">Your Message To Kyle</label>
+      <input type="text" maxlength="140" value="{{ .Message }}" name="message" id="message" />
+      <button type="submit">Send!</button>
+    </form>
+  </body>
+</html>
